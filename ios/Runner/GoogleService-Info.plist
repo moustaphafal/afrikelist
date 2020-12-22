@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>144093495080-at4ih1e7hr35421bmr5qkbf6r209q2j3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.144093495080-at4ih1e7hr35421bmr5qkbf6r209q2j3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC2hs5UwSUBXIAoy-L87p5TgE_ybjbwTQc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>144093495080</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.afrikelistsn.afrikelist</string>
+	<key>PROJECT_ID</key>
+	<string>afrikelist-app-50647</string>
+	<key>STORAGE_BUCKET</key>
+	<string>afrikelist-app-50647.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:144093495080:ios:4ab77ad5bd7ad57b091a1d</string>
+	<key>DATABASE_URL</key>
+	<string>https://afrikelist-app-50647.firebaseio.com</string>
+</dict>
+</plist>

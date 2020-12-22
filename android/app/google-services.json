@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "144093495080",
+    "firebase_url": "https://afrikelist-app-50647.firebaseio.com",
+    "project_id": "afrikelist-app-50647",
+    "storage_bucket": "afrikelist-app-50647.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144093495080:android:7854631e2bca49c2091a1d",
+        "android_client_info": {
+          "package_name": "com.afrikelistsn.afrikelist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144093495080-16m25dhjgad40e0cij43cjofpvjp20hh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl6X1vzJNBGp_z1TkwFqjqlO1APySRotA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144093495080-16m25dhjgad40e0cij43cjofpvjp20hh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
