@@ -4,7 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  //create a user object based on Firebase user
+
+  ///create a user object based on Firebase user
   /// name: _userFromFirebaseUser
   /// @Description: Create a custom [User] object (package:afrikelist/models/user.dart) based on [FirebaseUser]
   ///
@@ -21,12 +22,25 @@ class AuthService {
         : null;
   }
 
-  //auth change user stream
+  /// name: user
+  /// @Description: Listens to auth change in user stream
+  ///
+  /// @param:
+  /// @return:
+  ///        Stream:  [Stream<FirebaseUser>]
   Stream<FirebaseUser> get user {
     return _auth.onAuthStateChanged;
   }
 
-  //This method lets you sign in anonymously
+  /// name: signInAnon
+  /// @Description: Method to sign in Anonymously
+  ///
+  /// @param:
+  ///             name: [String] name of the user
+  ///             isManager: [bool] (if the custom user is a manager or not)
+  ///
+  /// @return:
+  ///        user:  [User] (_userFromFirebaseUser)
   Future signInAnon(name, isManager) async {
     try {
       AuthResult result = await _auth.signInAnonymously();
@@ -38,7 +52,18 @@ class AuthService {
     }
   }
 
-  //This method lets you sign in with your email
+  /// name: registerWithEmailAndPassword
+  /// @Description: Method to register new user with email and password
+  ///
+  /// @param:
+  ///
+  ///             email: [String] user email
+  ///             password: [String] user password
+  ///             name: [String] name of the user
+  ///             isManager: [bool] (if the custom user is a manager or not)
+  ///
+  /// @return:
+  ///        user:  [User] (_userFromFirebaseUser)
   Future registerWithEmailAndPassword(
       String email, String password, String name, bool isManager) async {
     try {
@@ -57,7 +82,16 @@ class AuthService {
     }
   }
 
-  // this function is for signing in
+  /// name: signInWithEmailAndPassword
+  /// @Description: Method to signin user with email and password
+  ///
+  /// @param:
+  ///
+  ///             email: [String] user email
+  ///             password: [String] user password
+  ///
+  /// @return:
+  ///        user:  [User]
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
       AuthResult result = await _auth.signInWithEmailAndPassword(
@@ -70,7 +104,13 @@ class AuthService {
     }
   }
 
-  //This method lets you sign in with your email
+  /// name: signOut
+  /// @Description: Method to signout user
+  ///
+  /// @param:
+  ///
+  /// @return:
+  ///        user:  [Future]
   Future signOut() async {
     try {
       return await _auth.signOut();
@@ -79,6 +119,4 @@ class AuthService {
       return null;
     }
   }
-
-  //This method lets you register new user
 }
