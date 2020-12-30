@@ -36,6 +36,9 @@ class _HomeState extends State<Home> {
 
     // setIsManager();
     // return this.isManager ? Manager() : NotManager();
-    return uid == "CkLcYvEaa4XMp0eVXwyMuHWtc3I3" ? Manager() : NotManager();
+    return uid == "CkLcYvEaa4XMp0eVXwyMuHWtc3I3" ||
+            uid == "Ncu6eaCwNKfRXjknP3ZiD9IE1J23"
+        ? Manager()
+        : NotManager();
   }
 }
