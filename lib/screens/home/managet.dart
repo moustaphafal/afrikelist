@@ -37,7 +37,7 @@ class Manager extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
                 // FlatButton(
                 //   color: Colors.blue,

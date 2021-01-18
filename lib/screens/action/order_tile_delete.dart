@@ -36,7 +36,7 @@ class OrderTileDelete extends StatelessWidget {
             backgroundColor: setColor(order),
           ),
           title: Text(order.id),
-          subtitle: Text(order.description),
+          subtitle: Text(order.customerName),
           onTap: () async {
             await showDialog(
               context: context,

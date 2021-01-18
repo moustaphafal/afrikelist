@@ -38,7 +38,7 @@ class _OrderTileState extends State<OrderTile> {
             radius: 25,
             backgroundColor: setColor(order),
           ),
-          title: Text(order.id),
+          title: Text(order.customerName),
           subtitle: Text(order.description),
           onTap: () {
             Navigator.push(
