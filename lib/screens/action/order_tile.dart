@@ -18,9 +18,7 @@ class _OrderTileState extends State<OrderTile> {
     if (order.isCompleted) {
       return Colors.green;
     }
-    if (order.isShipped) {
-      return Colors.orange;
-    }
+
     if (order.isConfirmed) {
       return Colors.red;
     }

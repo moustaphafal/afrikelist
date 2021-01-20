@@ -7,10 +7,15 @@ class Order {
   String orderDate;
   String operatorName;
   bool isConfirmed;
-  bool isShipped;
-  String shippingDate;
   bool isCompleted;
   String completionDate;
+  String showDate() {
+    DateTime today =
+        DateTime.fromMillisecondsSinceEpoch(int.parse(this.orderDate));
+    String date =
+        "${today.day.toString()}/${today.month.toString().padLeft(2, '0')}/${today.year.toString().padLeft(2, '0')} at ${today.hour.toString().padLeft(2, '0')}:${today.minute.toString().padLeft(2, '0')}";
+    return date;
+  }
 
   Order(
       {this.id,
@@ -21,8 +26,6 @@ class Order {
       this.orderDate,
       this.operatorName,
       this.isConfirmed,
-      this.isShipped,
-      this.shippingDate,
       this.isCompleted,
       this.completionDate});
 }

@@ -8,9 +8,6 @@ class OrderTileDelete extends StatelessWidget {
     if (order.isCompleted) {
       return Colors.green;
     }
-    if (order.isShipped) {
-      return Colors.orange;
-    }
     if (order.isConfirmed) {
       return Colors.red;
     }
@@ -20,9 +17,6 @@ class OrderTileDelete extends StatelessWidget {
   OrderTileDelete({this.order});
   @override
   Widget build(BuildContext context) {
-    if (!order.isShipped) {
-      return SizedBox();
-    }
     if (order.isCompleted) {
       return SizedBox();
     }
@@ -35,8 +29,8 @@ class OrderTileDelete extends StatelessWidget {
             radius: 25,
             backgroundColor: setColor(order),
           ),
-          title: Text(order.id),
-          subtitle: Text(order.customerName),
+          title: Text(order.customerName),
+          subtitle: Text(order.showDate() + "\n" + order.description),
           onTap: () async {
             await showDialog(
               context: context,
@@ -66,8 +60,6 @@ class OrderTileDelete extends StatelessWidget {
                             order.orderDate,
                             order.operatorName,
                             order.isConfirmed,
-                            order.isShipped,
-                            order.shippingDate,
                             true,
                             orderDate);
                       },

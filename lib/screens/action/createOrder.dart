@@ -179,8 +179,11 @@ class _CreateOrderState extends State<CreateOrder> {
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
                               DateTime today = new DateTime.now();
-                              String orderDate =
-                                  "${today.day.toString()}/${today.month.toString().padLeft(2, '0')}/${today.year.toString().padLeft(2, '0')} at ${today.hour.toString().padLeft(2, '0')}:${today.minute.toString().padLeft(2, '0')}";
+                              String orderDate = DateTime.now()
+                                  .millisecondsSinceEpoch
+                                  .toString();
+                              // String orderDate =
+                              //     "${today.day.toString()}/${today.month.toString().padLeft(2, '0')}/${today.year.toString().padLeft(2, '0')} at ${today.hour.toString().padLeft(2, '0')}:${today.minute.toString().padLeft(2, '0')}";
                               String id = 'U' +
                                   DateTime.now()
                                       .millisecondsSinceEpoch
@@ -210,8 +213,6 @@ class _CreateOrderState extends State<CreateOrder> {
                                                   orderDate,
                                                   operatorName,
                                                   true,
-                                                  false,
-                                                  '',
                                                   false,
                                                   '');
                                           setState(() => loading = false);

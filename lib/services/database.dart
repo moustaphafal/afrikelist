@@ -32,8 +32,6 @@ class DatabaseService {
       String orderDate,
       String operatorName,
       bool isConfirmed,
-      bool isShipped,
-      String shippingDate,
       bool isCompleted,
       String completionDate) async {
     return await orderCollection.document(id).setData({
@@ -45,8 +43,6 @@ class DatabaseService {
       'orderDate': orderDate,
       'operatorName': operatorName,
       'isConfirmed': isConfirmed,
-      'isShipped': isShipped,
-      'shippingDate': shippingDate,
       'isCompleted': isCompleted,
       'completionDate': completionDate,
     });
@@ -67,8 +63,6 @@ class DatabaseService {
         orderDate: doc.data['orderDate'],
         operatorName: doc.data['operatorName'],
         isConfirmed: doc.data['isConfirmed'],
-        isShipped: doc.data['isShipped'],
-        shippingDate: doc.data['shippingDate'],
         isCompleted: doc.data['isCompleted'],
         completionDate: doc.data['completionDate'],
       );

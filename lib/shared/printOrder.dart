@@ -35,8 +35,6 @@ class _PrintOrderState extends State<PrintOrder> {
           SizedBox(height: 10),
           OrderCard(context, "order Date", order.orderDate),
           SizedBox(height: 10),
-          OrderCard(context, "shippingDate", order.shippingDate),
-          SizedBox(height: 10),
           OrderCard(context, "completionDate", order.completionDate),
         ],
       ),

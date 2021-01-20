@@ -205,8 +205,6 @@ class _ModifyOrderState extends State<ModifyOneOrder> {
                                             orderDate,
                                             order.operatorName,
                                             true,
-                                            isShipped,
-                                            '',
                                             isCompleted,
                                             '');
 

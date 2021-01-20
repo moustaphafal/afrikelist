@@ -1,9 +1,9 @@
 import 'package:afrikelist/screens/action/createOrder.dart';
 import 'package:afrikelist/screens/aunthenticate/register.dart';
 import 'package:afrikelist/screens/home/allOrders.dart';
+import 'package:afrikelist/screens/home/analytics.dart';
 import 'package:afrikelist/screens/home/deleteOrder.dart';
 import 'package:afrikelist/screens/home/modifyOrder.dart';
-import 'package:afrikelist/screens/home/shipOrder.dart';
 import 'package:afrikelist/services/auth.dart';
 import 'package:afrikelist/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,26 +36,6 @@ class Manager extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(
-                  height: 50,
-                ),
-                // FlatButton(
-                //   color: Colors.blue,
-                //   onPressed: () async {
-                //     final FirebaseUser user = await _authTest.currentUser();
-                //     final uid = user.uid;
-                //     // print(uid);
-                //     // var docRef = Firestore.instance.collection('user');
-                //     // var snap = await docRef.getDocuments();
-                //     // print(snap.documents[1].documentID);
-                //     print(isManager);
-                //   },
-                //   child: Text('      test     '),
-                // ),
-                // SizedBox(
-                //   height: 50,
-                // ),
-
                 //Button too create order
                 FlatButton(
                   color: Colors.blue,
@@ -82,22 +62,7 @@ class Manager extends StatelessWidget {
                   },
                   child: Text('       Close Order       '),
                 ),
-                SizedBox(
-                  height: 50,
-                ),
 
-                //Button to mark order as shipped
-
-                FlatButton(
-                  child: Text('Mark Shipped Order'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ShipOrder()),
-                    );
-                  },
-                  color: Colors.blue,
-                ),
                 SizedBox(
                   height: 50,
                 ),
@@ -118,11 +83,11 @@ class Manager extends StatelessWidget {
                 ),
                 // Button to modify orders
                 FlatButton(
-                  child: Text('   Modify orders   '),
+                  child: Text('   Create new user   '),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ModifyOrder()),
+                      MaterialPageRoute(builder: (context) => Register()),
                     );
                   },
                   color: Colors.blue,
@@ -136,7 +101,7 @@ class Manager extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Register()),
+                      MaterialPageRoute(builder: (context) => Analytics()),
                     );
                   },
                   color: Colors.blue,

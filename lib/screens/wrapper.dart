@@ -1,5 +1,8 @@
 import 'package:afrikelist/screens/aunthenticate/authenticate.dart';
+import 'package:afrikelist/screens/home/allOrders.dart';
 import 'package:afrikelist/screens/home/home.dart';
+import 'package:afrikelist/screens/home/ongoing.dart';
+import 'package:afrikelist/screens/home/seeAll.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +12,7 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = Provider.of<FirebaseUser>(context);
     // return either home or auth widget
-
+    // return SeeAll();
     if (user == null) {
       return Authenticate();
     } else {

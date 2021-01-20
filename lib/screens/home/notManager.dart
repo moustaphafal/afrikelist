@@ -1,4 +1,5 @@
 import 'package:afrikelist/screens/action/createOrder.dart';
+import 'package:afrikelist/screens/aunthenticate/register.dart';
 import 'package:afrikelist/screens/home/allOrders.dart';
 import 'package:afrikelist/screens/home/deleteOrder.dart';
 import 'package:afrikelist/services/auth.dart';
@@ -32,15 +33,6 @@ class NotManager extends StatelessWidget {
         body: Center(
           child: Column(
             children: <Widget>[
-              SizedBox(
-                height: 150,
-              ),
-
-              SizedBox(
-                height: 50,
-              ),
-
-              //Button too create order
               FlatButton(
                 color: Colors.blue,
                 onPressed: () {
@@ -49,7 +41,7 @@ class NotManager extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => CreateOrder()),
                   );
                 },
-                child: Text('     create Order     '),
+                child: Text('     Create Order     '),
               ),
               SizedBox(
                 height: 50,
@@ -64,15 +56,16 @@ class NotManager extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => DeleteOrder()),
                   );
                 },
-                child: Text('       close order       '),
+                child: Text('       Close Order       '),
               ),
+
               SizedBox(
                 height: 50,
               ),
 
               FlatButton(
                 minWidth: 20,
-                child: Text('          All Orders          '),
+                child: Text('         All Orders         '),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -82,16 +75,19 @@ class NotManager extends StatelessWidget {
                 color: Colors.blue,
               ),
               SizedBox(
-                height: 20,
+                height: 50,
               ),
-              //Button to show all completed orders
-              // FlatButton(
-              //   child: Text('   All Closed orders   '),
-              //   onPressed: () {
-              //     // Navigator.pushNamed(context, '/closed');
-              //   },
-              //   color: Colors.blue,
-              // ),
+              // Button to modify orders
+              FlatButton(
+                child: Text('   Create new user   '),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Register()),
+                  );
+                },
+                color: Colors.blue,
+              ),
             ],
           ),
         ),
