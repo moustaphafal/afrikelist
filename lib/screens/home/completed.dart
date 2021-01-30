@@ -10,9 +10,12 @@ class Completed extends StatefulWidget {
 
 class _CompletedState extends State<Completed> {
   DateTime selectedDate = DateTime.now();
+  DateTime picked = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
+        initialDatePickerMode: DatePickerMode.year,
+        initialEntryMode: DatePickerEntryMode.input,
         context: context,
         initialDate: selectedDate,
         firstDate: DateTime(2015, 8),
@@ -40,15 +43,31 @@ class _CompletedState extends State<Completed> {
               height: 20.0,
             ),
             RaisedButton(
+              color: Colors.blue,
               onPressed: () async {
                 await _selectDate(context);
               },
-              child: Text("Click here to pick a date"),
+              child: Text("Click here to pick a Month"),
             ),
             SizedBox(
               height: 20.0,
             ),
+            // RaisedButton(
+            //   onPressed: () async {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => SortedOrder(
+            //                 isComplete: true,
+            //                 selectedDate: selectedDate,
+            //                 monthOrder: false,
+            //               )),
+            //     );
+            //   },
+            //   child: Text('See order for selected day'),
+            // ),
             RaisedButton(
+              color: Colors.blue,
               onPressed: () async {
                 Navigator.push(
                   context,
@@ -56,10 +75,11 @@ class _CompletedState extends State<Completed> {
                       builder: (context) => SortedOrder(
                             isComplete: true,
                             selectedDate: selectedDate,
+                            monthOrder: true,
                           )),
                 );
               },
-              child: Text('Confirm date'),
+              child: Text('see order for selected month'),
             ),
           ],
         ),

@@ -1,9 +1,7 @@
 import 'package:afrikelist/screens/action/createOrder.dart';
 import 'package:afrikelist/screens/aunthenticate/register.dart';
 import 'package:afrikelist/screens/home/allOrders.dart';
-import 'package:afrikelist/screens/home/analytics.dart';
 import 'package:afrikelist/screens/home/deleteOrder.dart';
-import 'package:afrikelist/screens/home/modifyOrder.dart';
 import 'package:afrikelist/services/auth.dart';
 import 'package:afrikelist/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -92,20 +90,20 @@ class Manager extends StatelessWidget {
                   },
                   color: Colors.blue,
                 ),
-                SizedBox(
-                  height: 50,
-                ),
-                // Button to modify orders
-                FlatButton(
-                  child: Text('   Create new user   '),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Analytics()),
-                    );
-                  },
-                  color: Colors.blue,
-                ),
+                // SizedBox(
+                //   height: 50,
+                // ),
+                // // Button to modify orders
+                // FlatButton(
+                //   child: Text('   Analytics   '),
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => Analytics()),
+                //     );
+                //   },
+                //   color: Colors.blue,
+                // ),
               ],
             ),
           ),

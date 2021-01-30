@@ -18,16 +18,16 @@ class _ModifyOrderState extends State<ModifyOneOrder> {
   _ModifyOrderState(this.order);
   final AuthService _auth = AuthService();
 
-  final _formKey = GlobalKey<FormState>();
-  String customerName = '';
-  String customerPhone = '';
-  String orderDescription = '';
-  String acompte = '';
-  String operatorName = '';
-  bool isShipped = false;
-  bool isCompleted = false;
-
+  // final _formKey = GlobalKey<FormState>();
+  String customerName;
+  String customerPhone;
+  String orderDescription;
+  String acompte;
+  String operatorName;
+  bool isCompleted;
+  String completionDate;
   bool loading = false;
+  bool initialCompletion;
   @override
   Widget build(BuildContext context) {
     return loading
@@ -49,7 +49,7 @@ class _ModifyOrderState extends State<ModifyOneOrder> {
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               children: <Widget>[
                 Form(
-                  key: _formKey,
+                  // key: _formKey,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
@@ -92,31 +92,6 @@ class _ModifyOrderState extends State<ModifyOneOrder> {
                           },
                         ),
                       ),
-                      // SizedBox(
-                      //   height: 20,
-                      // ),
-                      // TextFormField(
-                      //   enabled: false,
-                      //   validator: (val) =>
-                      //       val.isEmpty ? 'a description' : null,
-                      //   decoration: textInputDecoration.copyWith(
-                      //       hintText: 'order id -> ' +
-                      //           order.id +
-                      //           '\n' +
-                      //           'order date ->' +
-                      //           order.orderDate +
-                      //           '\n' +
-                      //           'order shipping date ->' +
-                      //           order.shippingDate +
-                      //           '\n' +
-                      //           'order completion date->' +
-                      //           order.orderDate),
-                      //   keyboardType: TextInputType.multiline,
-                      //   maxLines: 8,
-                      //   onChanged: (val) {
-                      //     setState(() => orderDescription = val);
-                      //   },
-                      // ),
                       SizedBox(
                         height: 20,
                       ),
@@ -156,18 +131,11 @@ class _ModifyOrderState extends State<ModifyOneOrder> {
                       SizedBox(
                         height: 20,
                       ),
-                      Text('has been shipped to senegal'),
-                      Checkbox(
-                        value: isShipped,
-                        onChanged: (bool newValue) {
-                          setState(() {
-                            isShipped = newValue;
-                          });
-                        },
-                      ),
                       Text('Is the order complete'),
                       Checkbox(
-                        value: isCompleted,
+                        value: isCompleted == null
+                            ? order.isCompleted
+                            : isCompleted,
                         onChanged: (bool newValue) {
                           setState(() {
                             isCompleted = newValue;
@@ -176,10 +144,7 @@ class _ModifyOrderState extends State<ModifyOneOrder> {
                       ),
                       RaisedButton(
                         onPressed: () async {
-                          if (_formKey.currentState.validate()) {
-                            DateTime today = new DateTime.now();
-                            String orderDate =
-                                "${today.day.toString()}/${today.month.toString().padLeft(2, '0')}/${today.year.toString().padLeft(2, '0')} at ${today.hour.toString().padLeft(2, '0')}:${today.minute.toString().padLeft(2, '0')}";
+                          if (true) {
                             // String operatorName = '';
                             // ignore: await_only_futures
                             await showDialog(
@@ -196,17 +161,52 @@ class _ModifyOrderState extends State<ModifyOneOrder> {
                                       onPressed: () async {
                                         Navigator.pop(context);
                                         setState(() => loading = true);
+                                        setState(() {
+                                          customerName = customerName == null
+                                              ? order.customerName
+                                              : customerName;
+                                          customerPhone = customerPhone == null
+                                              ? order.customerPhone
+                                              : customerPhone;
+                                          orderDescription =
+                                              orderDescription == null
+                                                  ? order.description
+                                                  : orderDescription;
+                                          acompte = acompte == null
+                                              ? order.acompte
+                                              : acompte;
+                                          operatorName = operatorName == null
+                                              ? order.operatorName
+                                              : operatorName;
+                                          initialCompletion = order.isCompleted;
+                                          isCompleted = isCompleted == null
+                                              ? order.isCompleted
+                                              : isCompleted;
+                                          if (initialCompletion !=
+                                                  isCompleted &&
+                                              isCompleted == true) {
+                                            completionDate =
+                                                DateTime.now().toString();
+                                          } else if (isCompleted == false) {
+                                            completionDate = '';
+                                          } else if (initialCompletion ==
+                                                  true &&
+                                              isCompleted == true) {
+                                            completionDate =
+                                                order.completionDate;
+                                          }
+                                        });
                                         await DatabaseService().updateOrderData(
                                             order.id,
                                             customerName,
                                             customerPhone,
                                             orderDescription,
                                             acompte,
-                                            orderDate,
+                                            order.orderDate,
                                             order.operatorName,
                                             true,
                                             isCompleted,
-                                            '');
+                                            completionDate);
 
                                         setState(() => loading = false);
                                       },

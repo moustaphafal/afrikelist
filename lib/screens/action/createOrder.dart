@@ -178,7 +178,6 @@ class _CreateOrderState extends State<CreateOrder> {
                         RaisedButton(
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
-                              DateTime today = new DateTime.now();
                               String orderDate = DateTime.now()
                                   .millisecondsSinceEpoch
                                   .toString();

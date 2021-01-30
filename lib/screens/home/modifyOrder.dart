@@ -7,16 +7,19 @@ import 'package:provider/provider.dart';
 class ModifyOrder extends StatefulWidget {
   final DateTime selectedDate;
   final bool isComplete;
-  const ModifyOrder({this.selectedDate, this.isComplete});
+  final bool monthOrder;
+  const ModifyOrder({this.selectedDate, this.isComplete, this.monthOrder});
   @override
   _ModifyOrderState createState() =>
-      _ModifyOrderState(selectedDate, isComplete);
+      _ModifyOrderState(selectedDate, isComplete, monthOrder);
 }
 
 class _ModifyOrderState extends State<ModifyOrder> {
   final DateTime selectedDate;
   final bool isComplete;
-  _ModifyOrderState(this.selectedDate, this.isComplete);
+  final bool monthOrder;
+
+  _ModifyOrderState(this.selectedDate, this.isComplete, this.monthOrder);
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Order>>.value(
@@ -28,6 +31,7 @@ class _ModifyOrderState extends State<ModifyOrder> {
         body: OrderListModify(
           selectedDate: selectedDate,
           isComplete: isComplete,
+          monthOrder: monthOrder,
         ),
       ),
     );

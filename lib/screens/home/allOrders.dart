@@ -1,7 +1,6 @@
 import 'package:afrikelist/models/order.dart';
-import 'package:afrikelist/screens/action/order_list.dart';
-import 'package:afrikelist/screens/home/ongoing.dart';
 import 'package:afrikelist/screens/home/seeAll.dart';
+import 'package:afrikelist/screens/home/sorting/sortedOrder.dart';
 import 'package:afrikelist/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -47,7 +46,12 @@ class _AllOrderState extends State<AllOrder> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Ongoing()),
+                      MaterialPageRoute(
+                          builder: (context) => SortedOrder(
+                                isComplete: false,
+                                selectedDate: null,
+                                monthOrder: true,
+                              )),
                     );
                   },
                   child: Text('         Ongoing         '),
@@ -66,20 +70,20 @@ class _AllOrderState extends State<AllOrder> {
                   },
                   child: Text('       Completed       '),
                 ),
-                SizedBox(
-                  height: 100,
-                ),
-                FlatButton(
-                  height: 50,
-                  color: Colors.blue,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SeeAll()),
-                    );
-                  },
-                  child: Text('           See all           '),
-                ),
+                // SizedBox(
+                //   height: 100,
+                // ),
+                // FlatButton(
+                //   height: 50,
+                //   color: Colors.blue,
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => SeeAll()),
+                //     );
+                //   },
+                //   child: Text('           See all           '),
+                // ),
               ],
             ),
           ),

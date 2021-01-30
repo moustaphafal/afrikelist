@@ -57,6 +57,7 @@ class _OngoingState extends State<Ongoing> {
                       builder: (context) => SortedOrder(
                             isComplete: false,
                             selectedDate: selectedDate,
+                            monthOrder: true,
                           )),
                 );
               },

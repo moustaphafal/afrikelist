@@ -1,8 +1,5 @@
 import 'package:afrikelist/screens/aunthenticate/authenticate.dart';
-import 'package:afrikelist/screens/home/allOrders.dart';
 import 'package:afrikelist/screens/home/home.dart';
-import 'package:afrikelist/screens/home/ongoing.dart';
-import 'package:afrikelist/screens/home/seeAll.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
