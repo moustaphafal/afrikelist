@@ -43,27 +43,65 @@ class _SignInState extends State<SignIn> {
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      SizedBox(
-                        height: 150,
-                      ),
+                      SizedBox(height: 100),
                       Image.asset('images/logo.png'),
-                      SizedBox(
-                        height: 50,
+                      Text(
+                        'LOGIN',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40.0,
+                          fontFamily: roboto,
+                          color: Colors.blue[700],
+                        ),
                       ),
-                      TextFormField(
+
+                      SizedBox(height: 50,),
+
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                        margin: EdgeInsets.symmetric(vertical: 10.0),
+                        decoration: BoxDecoration(
+                          color: Colors.blue[200],
+                          borderRadius: BorderRadius.circular(29) ,
+                        ),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            icon: Icon(
+                                Icons.person,
+                                color: Colors.white
+                            ),
+                            hintText: "Email",
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(color: Colors.white),
+                          validator: (val) => val.isEmpty ? 'enter email' : null,
+                          onChanged: (val) {
+                            setState(() => email = val);
+                          },
+                        ),
+                      ),
+
+                      SizedBox(height: 10),
+
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                        margin: EdgeInsets.symmetric(vertical: 10.0),
+                        decoration: BoxDecoration(
+                          color: Colors.blue[200],
+                          borderRadius: BorderRadius.circular(29) ,
+                        ),
+                        child: TextFormField(
                         decoration:
-                            textInputDecoration.copyWith(hintText: 'Email'),
-                        validator: (val) => val.isEmpty ? 'enter email' : null,
-                        onChanged: (val) {
-                          setState(() => email = val);
-                        },
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      TextFormField(
-                        decoration:
-                            textInputDecoration.copyWith(hintText: 'Password'),
+                            InputDecoration(
+                              icon: Icon(Icons.lock,
+                              color: Colors.white),
+                              suffixIcon: Icon(
+                                Icons.visibility,
+                                color: Colors.white,
+                              ),
+                              hintText: 'Password',
+                              border: InputBorder.none,
+                            ),
                         validator: (val) =>
                             val.length < 6 ? 'enter password 6+' : null,
                         onChanged: (val) {
@@ -71,9 +109,10 @@ class _SignInState extends State<SignIn> {
                         },
                         obscureText: true,
                       ),
-                      SizedBox(
-                        height: 50,
                       ),
+
+                      SizedBox(height: 30,),
+
                       RaisedButton(
                         onPressed: () async {
                           if (_formKey.currentState.validate()) {
@@ -82,20 +121,35 @@ class _SignInState extends State<SignIn> {
                                 .signInWithEmailAndPassword(email, password);
                             if (result == null) {
                               setState(() {
-                                error = 'give valid credential';
+                                error = 'Give valid credential';
                                 loading = false;
-                              });
-                            }
+                                });
+                              }
                           }
                         },
-                        color: Colors.blue,
-                        child: Text(
-                          'Sign in',
+                        padding: EdgeInsets.symmetric(
+                            vertical :15.0,
+                            horizontal:100.0
                         ),
-                      ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)
+                            ),
+                            color: Colors.blue[400],
+                            child: Text(
+                              'Sign in',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+
+
+
                       SizedBox(
-                        height: 12,
+                        height: 50,
+                        width: 100.0,
                       ),
+
                       Text(
                         error,
                         style: TextStyle(
@@ -111,3 +165,29 @@ class _SignInState extends State<SignIn> {
           );
   }
 }
+
+/*class TextFieldContainer extends StatelessWidget{
+  final Widget child;
+  const TextFieldContainer({
+    Key key,
+    this.child,
+}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            'EMAIL',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
+    );
+    throw UnimplementedError();
+  }
+
+}*/

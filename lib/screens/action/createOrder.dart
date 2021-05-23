@@ -24,13 +24,13 @@ class _CreateOrderState extends State<CreateOrder> {
   showAlertDialog(BuildContext context) {
     // set up the buttons
 
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = TextButton(
       child: Text("Cancel"),
       onPressed: () {
         Navigator.pop(context);
       },
     );
-    Widget confirmButton = FlatButton(
+    Widget confirmButton = TextButton(
       child: Text("Confirm"),
       onPressed: () {
         setState(() {
@@ -66,7 +66,7 @@ class _CreateOrderState extends State<CreateOrder> {
             appBar: AppBar(
               title: Text('create new order'),
               actions: <Widget>[
-                FlatButton.icon(
+                TextButton.icon(
                   onPressed: () async {
                     await _auth.signOut();
                   },
