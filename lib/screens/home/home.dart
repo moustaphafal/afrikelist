@@ -1,3 +1,4 @@
+import 'package:afrikelist/screens/home/components/HomePag.dart';
 import 'package:afrikelist/screens/home/managet.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ class _HomeState extends State<Home> {
     // return this.isManager ? Manager() : NotManager();
     return uid == "CkLcYvEaa4XMp0eVXwyMuHWtc3I3" ||
             uid == "Ncu6eaCwNKfRXjknP3ZiD9IE1J23"
-        ? Manager()
-        : Manager();
+        ? HomePage()
+        : HomePage();
   }
 }

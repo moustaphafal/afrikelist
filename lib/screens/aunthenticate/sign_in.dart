@@ -49,13 +49,30 @@ class _SignInState extends State<SignIn> {
                         'LOGIN',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 40.0,
-                          fontFamily: roboto,
-                          color: Colors.blue[700],
+                            fontSize: 35.0,
+                          color: Colors.blue[500],
                         ),
                       ),
 
-                      SizedBox(height: 50,),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        margin: EdgeInsets.symmetric(vertical: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.red[100],
+                          borderRadius: BorderRadius.circular(10),
+                          ),
+                        //icon: Icon(Icons.error),
+                        child: Text(
+                          error,
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(height: 10),
 
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -80,8 +97,6 @@ class _SignInState extends State<SignIn> {
                           },
                         ),
                       ),
-
-                      SizedBox(height: 10),
 
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -111,7 +126,7 @@ class _SignInState extends State<SignIn> {
                       ),
                       ),
 
-                      SizedBox(height: 30,),
+                      SizedBox(height: 20,),
 
                       RaisedButton(
                         onPressed: () async {
@@ -128,35 +143,21 @@ class _SignInState extends State<SignIn> {
                           }
                         },
                         padding: EdgeInsets.symmetric(
-                            vertical :15.0,
-                            horizontal:100.0
+                            vertical :16.0,
+                            horizontal:90.0
                         ),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)
+                              borderRadius: BorderRadius.circular(30)
                             ),
                             color: Colors.blue[400],
                             child: Text(
                               'Sign in',
                               style: TextStyle(
                                   color: Colors.white,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-
-
-
-                      SizedBox(
-                        height: 50,
-                        width: 100.0,
-                      ),
-
-                      Text(
-                        error,
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 12,
-                        ),
-                      )
                     ],
                   ),
                 ),
