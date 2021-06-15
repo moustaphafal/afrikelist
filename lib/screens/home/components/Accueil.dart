@@ -1,8 +1,9 @@
+import 'package:afrikelist/screens/action/order_list.dart';
 import 'package:flutter/material.dart';
 import '../allOrders.dart';
 import '../completed.dart';
 
-class HomePage extends StatelessWidget {
+class Accueil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,8 +32,8 @@ class HomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              AllOrder(),
-              Completed(),
+              OrderList(),
+              OrderList(),
               Completed(),
             ],
           ),

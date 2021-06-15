@@ -82,13 +82,13 @@ class _CreateOrderState extends State<CreateOrder> {
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                        SizedBox(
-                          height: 20,
-                        ),
+
+                        SizedBox(height: 20,),
+
                         Text(''),
-                        SizedBox(
-                          height: 10,
-                        ),
+
+                        SizedBox(height: 10,),
+
                         Row(
                           children: <Widget>[
                             SizedBox(
@@ -104,9 +104,9 @@ class _CreateOrderState extends State<CreateOrder> {
                                 },
                               ),
                             ),
-                            SizedBox(
-                              width: 35,
-                            ),
+
+                            SizedBox(width: 35,),
+
                             SizedBox(
                               width: 150,
                               height: 50,
@@ -122,9 +122,9 @@ class _CreateOrderState extends State<CreateOrder> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
+
+                        SizedBox(height: 20,),
+
                         SizedBox(
                           width: 400,
                           child: TextFormField(
@@ -137,9 +137,9 @@ class _CreateOrderState extends State<CreateOrder> {
                             },
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
+
+                        SizedBox(height: 20,),
+
                         TextFormField(
                           validator: (val) =>
                               val.isEmpty ? 'a description' : null,
@@ -151,9 +151,9 @@ class _CreateOrderState extends State<CreateOrder> {
                             setState(() => orderDescription = val);
                           },
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
+
+                        SizedBox(height: 20,),
+
                         SizedBox(
                           width: 400,
                           child: TextFormField(
@@ -172,9 +172,9 @@ class _CreateOrderState extends State<CreateOrder> {
                             },
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
+
+                        SizedBox(height: 20,),
+
                         RaisedButton(
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
@@ -236,9 +236,9 @@ class _CreateOrderState extends State<CreateOrder> {
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
-                        SizedBox(
-                          height: 12,
-                        ),
+
+                        SizedBox(height: 12,),
+
                       ],
                     ),
                   ),

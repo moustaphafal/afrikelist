@@ -33,12 +33,11 @@ class _OngoingState extends State<Ongoing> {
       body: Center(
         child: Column(
           children: <Widget>[
-            SizedBox(
-              height: 200.0,
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
+
+            SizedBox(height: 200.0,),
+
+            SizedBox(height: 20.0,),
+
             RaisedButton(
               color: Colors.blue,
               onPressed: () async {
@@ -46,9 +45,9 @@ class _OngoingState extends State<Ongoing> {
               },
               child: Text("click here to pick a date"),
             ),
-            SizedBox(
-              height: 20.0,
-            ),
+
+            SizedBox(height: 20.0,),
+
             RaisedButton(
               onPressed: () async {
                 Navigator.push(

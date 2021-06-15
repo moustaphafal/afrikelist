@@ -22,54 +22,40 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return loading
         ? Loading()
-        : Scaffold(
-            backgroundColor: Colors.white,
-            // appBar: AppBar(
-            //   backgroundColor: Colors.blue,
-            //   title: Text('Afriklist'),
-            //   // actions: <Widget>[
-            //   //   FlatButton.icon(
-            //   //     onPressed: () {},
-            //   //     label: Text('register'),
-            //   //     icon: Icon(Icons.person),
-            //   //   ),
-            //   // ],
-            // ),
+        : Container (
+          decoration: BoxDecoration(
+            image : DecorationImage(
+                image: AssetImage("images/logistic_background.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
 
-            body: ListView(
+         child : Scaffold(
+
+            backgroundColor: Colors.transparent,
+            body: Container(
+              child : ListView(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
               children: <Widget>[
                 Form(
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      SizedBox(height: 100),
+                      SizedBox(height: 70),
                       Image.asset('images/logo.png'),
-                      Text(
+                      SizedBox(height: 50),
+                      /*Text(
                         'LOGIN',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 35.0,
                           color: Colors.blue[500],
                         ),
-                      ),
+                      ),*/
 
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                        margin: EdgeInsets.symmetric(vertical: 5),
-                        decoration: BoxDecoration(
-                          color: Colors.red[100],
-                          borderRadius: BorderRadius.circular(10),
-                          ),
-                        //icon: Icon(Icons.error),
-                        child: Text(
-                          error,
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                      ErrorBox(
+                          error: error,
+                          coloris : Colors.red[100],
                       ),
 
                       SizedBox(height: 10),
@@ -163,7 +149,59 @@ class _SignInState extends State<SignIn> {
                 ),
               ],
             ),
-          );
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(100),
+                image : DecorationImage(
+                  image: AssetImage("images/logistic_background.jpg"),
+                  fit: BoxFit.cover,
+              ),
+                // boxShadow: ,
+              ),
+              height: MediaQuery.of(context).size.height ,
+              width: MediaQuery.of(context).size.width ,
+              margin: EdgeInsets.all(20.0),
+
+            )
+          )
+    //]
+    );
+  }
+}
+
+class ErrorBox extends StatefulWidget {
+  const ErrorBox({
+    Key key,
+    @required this.error,
+    Color coloris,
+  }) : super(key: key);
+
+  final String error;
+  final Color colora = Colors.white;
+
+  @override
+  _ErrorBoxState createState() => _ErrorBoxState();
+}
+
+class _ErrorBoxState extends State<ErrorBox> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      margin: EdgeInsets.symmetric(vertical: 5),
+      decoration: BoxDecoration(
+        color: widget.colora,
+        borderRadius: BorderRadius.circular(10),
+        ),
+      child: Text(
+        widget.error,
+        style: TextStyle(
+          color: Colors.red[900],
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
   }
 }
 

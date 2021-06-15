@@ -1,5 +1,7 @@
 import 'package:afrikelist/models/order.dart';
+import 'package:afrikelist/screens/action/order_list.dart';
 import 'package:afrikelist/screens/home/seeAll.dart';
+import 'package:afrikelist/screens/action/createOrder.dart';
 import 'package:afrikelist/screens/home/sorting/sortedOrder.dart';
 import 'package:afrikelist/services/database.dart';
 import 'package:flutter/material.dart';
@@ -12,22 +14,29 @@ class AllOrder extends StatefulWidget {
   _AllOrderState createState() => _AllOrderState();
 }
 
-// class _AllOrderState extends State<AllOrder> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return StreamProvider<List<Order>>.value(
-//       value: DatabaseService().orders,
-//       child: Scaffold(
-//         appBar: AppBar(
-//           title: Text('All orders'),
-//         ),
-//         body: OrderList(),
-//       ),
-//     );
-//   }
-// }
+ class _AllOrderState extends State<AllOrder> {
+   @override
+   Widget build(BuildContext context) {
+     return StreamProvider<List<Order>>.value(
+       value: DatabaseService().orders,
+       child: Scaffold(
+         appBar: AppBar(
+           title: Text('All orders'),
+         ),
+         body: OrderList(),
+         floatingActionButton: FloatingActionButton(
+           onPressed: () {
 
-class _AllOrderState extends State<AllOrder> {
+           },
+           child: Icon(Icons.add),
+           backgroundColor: Colors.red[300],
+         ),
+       ),
+     );
+   }
+ }
+
+/*class _AllOrderState extends State<AllOrder> {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Order>>.value(
@@ -40,6 +49,7 @@ class _AllOrderState extends State<AllOrder> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+
                 FlatButton(
                   height: 50,
                   color: Colors.blue,
@@ -51,14 +61,15 @@ class _AllOrderState extends State<AllOrder> {
                                 isComplete: false,
                                 selectedDate: null,
                                 monthOrder: true,
-                              )),
+                              )
+                      ),
                     );
                   },
-                  child: Text('         Ongoing         '),
+                  child: Text('   Ongoing   '),
                 ),
-                SizedBox(
-                  height: 100,
-                ),
+
+                SizedBox(height: 100,),
+
                 FlatButton(
                   height: 50,
                   color: Colors.blue,
@@ -68,8 +79,9 @@ class _AllOrderState extends State<AllOrder> {
                       MaterialPageRoute(builder: (context) => Completed()),
                     );
                   },
-                  child: Text('       Completed       '),
+                  child: Text('   Completed   '),
                 ),
+
                 // SizedBox(
                 //   height: 100,
                 // ),
@@ -91,4 +103,4 @@ class _AllOrderState extends State<AllOrder> {
       ),
     );
   }
-}
+}*/
