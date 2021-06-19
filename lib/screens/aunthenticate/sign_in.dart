@@ -44,18 +44,9 @@ class _SignInState extends State<SignIn> {
                       SizedBox(height: 70),
                       Image.asset('images/logo.png'),
                       SizedBox(height: 50),
-                      /*Text(
-                        'LOGIN',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 35.0,
-                          color: Colors.blue[500],
-                        ),
-                      ),*/
 
                       ErrorBox(
                           error: error,
-                          coloris : Colors.red[100],
                       ),
 
                       SizedBox(height: 10),
@@ -150,7 +141,7 @@ class _SignInState extends State<SignIn> {
               ],
             ),
               decoration: BoxDecoration(
-                color: Colors.transparent,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(100),
                 image : DecorationImage(
                   image: AssetImage("images/logistic_background.jpg"),
@@ -173,24 +164,30 @@ class ErrorBox extends StatefulWidget {
   const ErrorBox({
     Key key,
     @required this.error,
-    Color coloris,
   }) : super(key: key);
 
   final String error;
-  final Color colora = Colors.white;
 
   @override
   _ErrorBoxState createState() => _ErrorBoxState();
 }
 
 class _ErrorBoxState extends State<ErrorBox> {
+
+  Color c = Colors.white;
+
+  Color setColor(String s){
+    if (s != "")
+      return c = Colors.red[200];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       margin: EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-        color: widget.colora,
+        color: setColor(widget.error),
         borderRadius: BorderRadius.circular(10),
         ),
       child: Text(

@@ -24,15 +24,9 @@ class AllOrder extends StatefulWidget {
            title: Text('All orders'),
          ),
          body: OrderList(),
-         floatingActionButton: FloatingActionButton(
-           onPressed: () {
-
-           },
-           child: Icon(Icons.add),
-           backgroundColor: Colors.red[300],
          ),
-       ),
-     );
+       );
+     //);
    }
  }
 

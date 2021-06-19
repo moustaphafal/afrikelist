@@ -17,6 +17,15 @@ class Manager extends StatelessWidget {
       value: DatabaseService().user,
       child: Scaffold(
         backgroundColor: Colors.white,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CreateOrder()),
+            );
+          },
+        ),
         appBar: AppBar(
           title: Text('Home'),
           backgroundColor: Colors.blue,

@@ -20,7 +20,7 @@ class _OrderTileState extends State<OrderTile> {
     }
 
     if (order.isConfirmed) {
-      return Colors.red;
+      return Colors.orange;
     }
     return Colors.red;
   }
@@ -38,6 +38,9 @@ class _OrderTileState extends State<OrderTile> {
           ),
           title: Text(order.customerName),
           subtitle: Text(order.description),
+          onLongPress: (){
+
+          },
           onTap: () {
             Navigator.push(
               context,

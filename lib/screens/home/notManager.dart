@@ -17,6 +17,18 @@ class NotManager extends StatelessWidget {
       value: DatabaseService().user,
       child: Scaffold(
         backgroundColor: Colors.white,
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Colors.blue,
+          icon : const Icon(Icons.add),
+          label : const Text('Create Order'),
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CreateOrder()),
+            );
+          },
+         // floatingActionButtonLocation :
+        ),
         appBar: AppBar(
           title: Text('Home'),
           backgroundColor: Colors.blue,
@@ -33,16 +45,6 @@ class NotManager extends StatelessWidget {
         body: Center(
           child: Column(
             children: <Widget>[
-              FlatButton(
-                color: Colors.blue,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CreateOrder()),
-                  );
-                },
-                child: Text('     Create Order     '),
-              ),
               SizedBox(
                 height: 50,
               ),
